@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>首页</title>
+</head>
+	<style>
+		body
+		{
+   background-image: url("tupian/01.jpg");
+    overflow-y:scroll; 
+    }
+.one{
+    height: 1000px;
+    width: 1200px;
+    background-color:#BBE0E9;
+    margin: 0 auto;
+    margin-top:0;
+    padding: 0;
+    position: relative;
+    top: -125px;
+    position: relative;
+    bottom: 16px;
+}
+.one:hover {
+				box-shadow: 10px 10px 50px #fff;
+			}
+.two{
+    width: 100%;
+    height: 60px;
+    background-color:rgba(236, 236, 236, 0.59);
+   background-opacity: 0.5;
+}
+.three{
+    height: 1500px;
+    width: 230px;
+    float: left;
+    position: relative;
+    top:60px;
+    left: 50px;
+    border-radius: 16px; 
+}
+.five{
+    height:450px;
+    width: 800px;
+    background-color:#D4FAEB ;
+    float: right;
+    position: relative;
+    top:60px;
+    right: 50px;
+    border-radius: 12px;
+    padding-top: 10px;
+}
+ul{
+    list-style: none;
+    text-align: center;
+}
+.li-1{
+    background-color: transparent;
+    float: left;
+    width: 100px;
+    height: 40px;
+    padding-left: 0px;
+    margin-left:0px;
+    line-height: 60px;  
+}
+	 
+.ul-1 a:hover{
+    background-color: #B2C1C6;
+    border-radius: 18px;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    display:block; 
+    font-weight: 700;    
+}
+.ul-2{
+    opacity: none;
+    padding: 0;
+}
+.tou{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;   
+}
+		.tou:hover{
+			 width: 120px;
+    height: 120px;
+		}
+h4{
+    text-align: center;
+    margin: 5px;
+	color:#0909B7;
+}
+.ul-2 li:hover{
+     background-color: #EBFFF6;
+     border-radius: 16px;
+}
+.four{
+    float: left;
+    margin: 0 auto;
+    width: 260px;
+	height:
+		90px;
+}
+.ul-3{
+    float: left;
+    width: 230px;
+    padding: 0;
+
+}
+.a{
+    width: 100%;
+    height: 57px;     
+}
+.a-1{
+    color: #000;
+    display:block;
+   text-align: center;
+   line-height: 57px;
+}
+.ul-3 li:hover{
+    background-color: #EBFFF6;
+    
+}
+.jianjie{
+    height: 40px;
+    width: 40px;
+    vertical-align: top;
+}
+h2{
+    line-height: 40px;
+    margin-top: 0;
+}
+p{
+    padding-left: 10px;
+}
+.jieshao{
+    text-indent: 2em;
+    padding-top: 10px;
+    line-height: 25px;
+    margin:2px 0; 
+}
+		p:hover{
+			font color:#210A88;
+		}
+.six{
+    height:350px;
+    width: 800px;
+    background-color: rgba(236, 236, 236, 0.59);
+    float: right;
+    position: relative;
+    top:40px;
+    right: 50px;
+    border-radius: 12px;
+    padding-top: 10px;
+}
+		.six:hover {
+				box-shadow: 10px 10px 20px #fff;
+			}
+ 
+		.jineng:hover{
+			height:100px;
+			width:100px;
+		}
+.li-3{
+    width: 253px;
+    height: 350px;
+    float: left;
+    text-align: center;
+}
+.li-4{
+    width: 200px;
+    height: 200px;
+    margin-left:-20px;
+}
+	.li-4:hover{
+		width:300px;
+		height:300px:
+		}
+	.a-1:hover{
+			 color:#0909B7;
+		}
+		.a-2{
+    color:#0909B7;
+    display:block;
+   text-align: center;
+   line-height: 57px;
+}
+	</style>
+<body> 
+    <canvas></canvas>
+    <script type="text/javascript">
+        let canvas = doucument.querySelector('canvas');
+        let context = canvas.getContext('2d');
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        canvas.width = w;
+        canvas.height = h;
+        let num = 200;
+        let snows = [];
+        for (let i = 0; i < num; i++)
+        {
+            snows.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * 10 + 1
+            });
+        }
+        let move = () => {
+            for (let i = 0; i < num; i++) {
+                let snow = snows[i];
+                snow.x += Math.random() * 2 + 1;
+                snow.x += Math.random() * 2 + 1;
+                if (snow.x > w) {
+                    snow.x = 0;
+                }
+                if (snow.y > h) {
+                    snow.x = 0;
+                }
+            }
+        }
+        let draw = () => {
+            context.clearRect(0, 0, w, h);
+            context.beginPath();
+            context.fillstyle = 'rgb(255,255,255)';
+            context.shadowColor = 'rgb(255,255,255)';
+            context.shadowBlur = 10;
+            for (let i = 0; i < num; i++) {
+                let snow = snows[i];
+                context.moveTo(snow.x, snow.y);
+                context.arc(snow.x, snow.y, snow.r, 0, Math.PI * 2);
+            }
+            context.fill();
+            context.closePath();
+            move();
+        }
+        draw();
+        setInterval(draw, 30);
+    </script>
+ <div class="one">
+   <div class="two">
+   <ul class="ul-1">
+         <li class="li-1"><a class="a-1" href="index.html">主页</a></li>
+	   <li class="li-1"><a class="a-2" href="shouye.html">首页</a></li>
+	    
+	    <li class="li-1"><a class="a-1" href="shouye-shenghuoxiguan.html">
+             生活习惯</a></li>
+			<li class="li-1"><a class="a-1" href="shouye-fafengrichang.html">发疯日常</a></li>
+            <li class="li-1"><a class="a-1" href="shouye-liuyanban.html"> 欢迎留言</a></li>
+	   <li class="li-1"><a class="a-1" href="gougoumeizhao.html">狗狗美照</a></li>
+        <li class="li-1"><a class="a-1" href="gougoudashang.html">狗狗大赏</a></li>
+        <li class="li-1"><a class="a-1" href="gougoujiyu.html">狗狗寄语</a></li>  
+   </ul> 
+   </div>
+   <div class="three">
+        <ul class="ul-2">
+        <li class="li-2"><img class="tou" src="tupian/02.png" alt="">
+        <h4>导航员小柴</h4>
+        </li>
+        </ul>
+      <div class="four">   
+        <ul class="ul-3">
+            
+        </ul>
+      </div> 
+  </div>
+   <div class="five">
+   
+     <h2> <img class="jianjie" src="tupian/09.jpg" alt="">小柴自述</h2><hr>
+     <p> 大名：小柴&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;      生日：6月3日</p>
+     <p>性别：阳光开朗大男孩 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;主人：70A宿舍的小混混</p>
+     <p>芳龄：3岁&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 疫苗接种：全完成</p>
+     
+     <p>智商：250+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&emsp;&ensp;&emsp;&emsp;&emsp; 情商：300+</p>
+     <p class="jieshao">在狗狗表情包的世界里，除了二哈，柴犬认第二，没人能跟我抢，因为本柴犬的搞笑功底，跟二哈也是不遑多让的。邪性的表情，如果在加上墨镜和雪茄，江湖大佬范儿十足。</p>
+     <p class="jieshao">要问全世界最喜欢出去溜达的狗子，非本柴犬莫属了。我那可是出了名的难遛，一出门就放飞自我，不玩疯我是不会回家的！</p>
+     <p class="jieshao">都说柴犬乖巧温和，但那只是说说而已，真正养起来你就知道小看我了。我的精力很旺盛，也很调皮，要是哪里我看不顺眼了，就会乱咬一通，本柴犬可是隐藏的拆家达人呢。</p>
+   </div>
+   <div class="six">
+     <h2>我的拆家本领</h2>
+     <ul>
+       <li class="li-3">
+       <img class="li-4" src="tupian/11.jpg" alt="">
+       </li>
+       <li class="li-3">
+       <img class="li-4" src="tupian/12.jpg" alt="">
+       </li>
+       <li class="li-3">
+       <img class="li-4" src="tupian/13.jpg" alt="">
+       </li>
+     </ul>
+   </div>
+</div>   
+</body>
+</html>

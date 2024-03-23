@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>狗狗美照</title>
+    <style>
+        *{margin:0;padding:0;}
+		body{
+   background-image: url("tupian/01.jpg");
+    overflow-y:scroll;
+    background-attachment : inherit；
+}
+.one{
+    height: 1200px;
+    width: 1200px;
+    background-color:#BBE0E9;
+    margin: 0 auto;
+    margin-top:0;
+    padding: 0;
+    position: relative;
+    bottom: 16px;
+    position: relative;
+    bottom: 16px;
+}
+.one:hover {
+				box-shadow: 10px 10px 50px #418FAA;
+	 
+			}
+.two{
+    width: 100%;
+    height: 60px;
+   background-color:rgba(236, 236, 236, 0.59);
+   background-opacity: 0.5;
+}
+		ul{
+    list-style: none;
+    text-align: center;
+
+}
+.li-1{
+    background-color: transparent;
+    float: left;
+    width: 100px;
+    height: 40px;
+    padding-left: 0px;
+    margin-left:0px;
+    line-height: 60px;
+    position: relative;
+    left: 40px;
+}
+.ul-1 a:hover{
+    background-color: #B2C1C6;
+    border-radius: 18px;
+}
+
+a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    display:block; 
+    font-weight: 700;
+}
+		.three{
+			background-color:black;
+			position:relative;
+			top:-1100px;
+			left:150px;
+			height:400px;
+			width:1000px;
+		}
+		.three img {
+      width: 1000px;
+      height: 500px;
+    }
+		 
+		 .ul-2 {
+      position: absolute;
+      list-style: none;
+      overflow: hidden;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    li {
+      float: left;
+      width: 10px;
+      height: 10px;
+		color: powderblue;
+      margin-left: 10px;
+      background-color:antiquewhite;
+      border-radius: 50%;
+       }
+		.four p{
+			color:#22765E;
+			text-align:center;
+		}
+		p:hover{
+			color:#212BCE;
+		}
+		 
+h2{
+    position: relative;
+	bottom: 40px;}
+		.tu-1{
+    margin-left: 13px;
+    margin-bottom: 13px;
+    width:200px;
+    height: 150px;
+    position: relative;
+     border-radius: 16px;
+    
+}
+		footer {
+			border-top: 1px solid #333;
+			background-color:antiquewhite;
+			position:relative;
+			top:-900px;
+			left:140px;
+			height: 80px;
+			width: 1000px;
+			font-size: 22px;
+			font-weight: 400;
+			text-align:center;
+			padding-top: 50px;
+			background-opacity: 0.5;
+		}
+.a-1:hover{
+			 color:#0909B7;
+		}
+		.a-2{
+    color:#0909B7;
+    display:block;
+   text-align: center;
+   line-height: 57px;
+}
+    </style>
+</head>
+<body>
+ <div class="one">
+   <div class="two">
+     <ul class="ul-1">
+        <li class="li-1"><a class="a-1" href="index.html">主页</a></li>
+	   <li class="li-1"><a class="a-1" href="shouye.html">首页</a></li>
+	   <li class="li-1"><a class="a-2" href="gougoumeizhao.html">狗狗美照</a></li>
+        <li class="li-1"><a class="a-1" href="gougoudashang.html">狗狗大赏</a></li>
+        <li class="li-1"><a class="a-1" href="gougoujiyu.html">狗狗寄语</a></li>    
+   </ul> 
+   </div>
+	</div>
+	 <div class="three">
+    <img src="tupian/21.jpg" alt="">
+    <img src="tupian/22.jpg" alt="">
+    <img src="tupian/23.jpg" alt="">
+    <img src="tupian/24.jpg" alt="">
+    <ul class="ul-2">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+		 <div class="four">
+		<p>好好照顾你的宠物，也许它对于你只是生命的一个过客，而你对于它，是全部。</p>
+		<p>狗狗很单纯，它只会遵循自己的本能，给你它最喜欢的，把它的一生，毫无保留地全部交给你。</p>
+	</div>
+	</div>
+	<footer>
+	快来找小狗玩！</footer>
+	</body>
+ <script>
+  var imgs = document.querySelectorAll(".three img");
+  var btn = document.querySelectorAll(".three li");
+  var num = 0;
+  btn[num].style.backgroundColor = "red";
+  var timer = setInterval(roll, 2000)
+  function roll() {
+    num++;
+    num >= imgs.length ? num = 0 : num = num;
+    imgs.forEach((item, index) => {
+      item.style.display = 'none'
+      btn[index].style.background = 'papayawhip'
+    })
+    imgs[num].style.display = 'block' 
+    btn[num].style.background = 'red'
+  } 
+  btn.forEach(function (item, index) {
+    item.onmouseenter = function () {
+      clearInterval(timer)
+      num = index - 1
+      roll()
+    }
+    item.onmouseleave = function () {
+      timer = setInterval(roll, 2000)
+    }
+  })
+</script>
+</html>

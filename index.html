@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>主页</title>
+</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+   background-image:linear-gradient(
+   125deg,#2c3e50,#83E7BA,#2980b9,#D17A6E,#E9D9D9
+   );
+			background-size:400%;
+			animation:move 10s infinite;
+			  overflow-y:scroll;
+			height:800px;
+}
+		@keyframes move{
+			0%{
+				background-position:0% 50%;
+			}
+			50%{
+				background-position:100% 50%;
+			}
+			100%{
+				background-position:0% 50%;
+			}
+		}
+		 
+.one{
+    text-align:right;
+    padding-top: 10%;
+}
+.oneone img:hover
+		{
+    width: 100px;
+    height: 100px;
+}
+.onetwo{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    vertical-align:center ;
+}
+.two{
+    width: 400px;
+    height: 40px;
+    background-color: white;
+     margin-left: auto;
+    border-radius: 12px;
+    opacity: 0.8;
+}
+h3{
+    line-height: 40px;
+    text-align:center;
+}
+.three{
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    margin-left: auto;
+    border-radius: 12px;
+    opacity: 0.8;
+}
+a{
+     text-decoration: none;
+}
+h3:hover{
+    background-color: #404040;
+    border-radius: 12px;
+}	
+		
+		#piao {
+			position: relative;
+		}
+		
+		.xue {
+			position: absolute;
+			display: inline-blocck;
+			outline: none;
+			border: none;
+			animation: hua 8s infinite linear;
+		}
+		
+		.xue:hover {
+			animation-play-state: paused;
+			opacity: 1;
+			cursor: pointer;
+			 
+		}
+		
+		@keyframes hua{
+			from{
+				opacity: 1;
+				transform: translate(0, 0) rotate(0deg);
+			}
+			to{
+				opacity: 0;
+				transform: translate(0, 700px) rotateZ(72deg) rotateY(72deg) scale(1.5);
+			}
+		}
+
+</style>
+<body>
+		<div id="piao"></div>
+    <div class="one">
+       <a class="oneone" href="zhuy.html"><img class="onetwo" src="tupian/02.png" alt=""></a>
+     </div>
+     <div class="two">
+         <h3>你想来参观宠物乐园吗？</h3>    
+     </div>  
+     <div class="three">
+         <a href="shouye.html"><h3>访问</h3></a>
+	</div>
+	<script type="text/javascript">
+		
+		var xh = document.getElementById("piao");
+		var dWidth = document.body.scrollWidth;
+		var dHeight = window.innerHeight;
+		var setXH = setInterval(function(){production();}, 120);
+		
+		xh.style.height = dHeight;
+		
+		function production()
+		{
+			var t1 = document.createElement("div");
+			var t1Left = Math.floor(Math.random() * dWidth) - 100;
+			var t1Top = Math.floor(Math.random() * 10);
+			
+			t1.style.left = t1Left + "px";
+			t1.style.top = t1Top + "px";
+			t1.style.display = "inline-block";
+			t1.innerText = "快来看小狗";
+			t1.style.color = "white";
+			t1.classList.add("xue");
+			xh.appendChild(t1);
+			
+			setInterval(function(){
+				t1.remove();
+			}, 5000);
+		}
+	
+
+	</script>
+</body>
+</html>
